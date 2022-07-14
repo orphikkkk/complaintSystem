@@ -1,6 +1,6 @@
 namespace SajhaSabal.Models;
 
-public class ComplaintModel
+public class UserDetailModel
 {
     public int Id { get; set; }
     public string? Title { get; set; }  
