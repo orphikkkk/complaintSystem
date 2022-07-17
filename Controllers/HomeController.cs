@@ -3,19 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 using SajhaSabal.Models;
 
 namespace SajhaSabal.Controllers;
+using SajhaSabal.Models;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly SsdbContext _context;
+    public HomeController(ILogger<HomeController> logger,SsdbContext ssdbContext)
     {
         _logger = logger;
+        _context = ssdbContext;
     }
 
     public IActionResult Index()
     {
-        return View();
+        List<NoticeModel> notices = _context.Notices.ToList();
+        return View(notices);
     }
 
     public IActionResult Privacy()

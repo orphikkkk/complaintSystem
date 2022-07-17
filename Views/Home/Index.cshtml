@@ -1,8 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "SajhaSabal";
 }
-
+@model List<NoticeModel>;
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">SajhaSabal</h1>
+    <p>Janata ko awaj Sarkar Samma.</p>
+    <hr>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <h2>Complaints</h2>
+        @foreach(var not in Model){
+            <div class="border border-light p-3 mt-1">
+                <h3>@not.Title</h3>
+                <p>@not.Description</p>
+            </div>
+        }
+    </div>
+    <div class="col-sm-4">
+        <div class="p-3 border border-light rounded">
+            <h2>Notices</h2>
+            <ul class="list-group list-group-flush">
+                @foreach (var not in Model)
+                {
+                    <li class="list-group-item"><a href="/Notice/View?id=@not.Id" class="text-black text-decoration-none">@not.Title</a></li>
+                }
+            </ul>
+        </div>
+    </div>
 </div>
