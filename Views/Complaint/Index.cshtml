@@ -1,0 +1,41 @@
+@model IEnumerable<SajhaSabal.Models.ComplaintModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+   <button class="btn btn-success"><a class="text-decoration-none text-white" asp-action="Create">Create New</a></button>
+</p>
+<table class="table" style="table-layout: fixed">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td class="text-truncate">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <button class="btn btn-warning"><a class="text-decoration-none text-white" asp-action="Edit" asp-route-id="@item.Id">Edit</a></button>
+                <button class="btn btn-info"><a class="text-decoration-none text-white" asp-action="Details" asp-route-id="@item.Id">Details</a></button>
+                <button class="btn btn-danger"><a class="text-decoration-none text-white"   asp-action="Delete" asp-route-id="@item.Id">Delete</a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
