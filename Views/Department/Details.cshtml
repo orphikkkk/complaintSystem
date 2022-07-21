@@ -1,14 +1,13 @@
-@model SajhaSabal.Models.NoticeModel
+@model SajhaSabal.Models.DepartmentModel
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>Notice</h4>
+    <h4>DepartmentModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -26,9 +25,6 @@
     </dl>
 </div>
 <div>
- @if (this.User.IsInRole("Admin"))
- {
-     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
- }
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
