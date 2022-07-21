@@ -48,6 +48,8 @@ namespace SajhaSabal.Controllers
         // GET: Complaint/Create
         public IActionResult Create()
         {
+            List<DepartmentModel> department = _context.Departments.ToList();
+            ViewBag.Departments = department;
             return View();
         }
 

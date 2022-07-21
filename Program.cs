@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SajhaSabal;
 
@@ -9,6 +10,17 @@ builder.Services.AddDbContext<SsdbContext>(op =>
 {
     op.UseMySql("server=localhost;uid=root;pwd=password;database=sajhasabal", ServerVersion.AutoDetect("server=localhost;uid=root;pwd=password;database=sajhasabal"));
 });
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<SsdbContext>()
+    .AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>(op =>
+{
+    op.Password.RequireNonAlphanumeric = false;
+    op.Password.RequireLowercase = false;
+});
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,7 +36,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "default",

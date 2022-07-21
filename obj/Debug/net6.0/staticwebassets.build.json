@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kRKidUMIAcGFOtcESrGuBI/0qzI2ojx07BP1KM8vqPU=",
+  "Hash": "OHrLyT4bwSEoGjPt+6cRTTyh+yTYv43N3lpJ5nNyiSs=",
   "Source": "SajhaSabal",
   "BasePath": "_content/SajhaSabal",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/obj/Debug/net6.0/scopedcss/projectbundle/SajhaSabal.bundle.scp.css"
     },
     {
+      "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/.DS_Store",
+      "SourceId": "SajhaSabal",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/",
+      "BasePath": "_content/SajhaSabal",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/css/site.css",
       "SourceId": "SajhaSabal",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/img/advertisement.jpeg",
+      "SourceId": "SajhaSabal",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/",
+      "BasePath": "_content/SajhaSabal",
+      "RelativePath": "img/advertisement.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/advertisement.jpeg"
     },
     {
       "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/js/site.js",

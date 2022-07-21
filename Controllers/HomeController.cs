@@ -18,6 +18,9 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         List<NoticeModel> notices = _context.Notices.ToList();
+        List<ComplaintModel> complaints = _context.Complaints.ToList();
+
+        ViewBag.Complaints = complaints;
         return View(notices);
     }
 

@@ -9,23 +9,31 @@
 </div>
 <div class="row">
     <div class="col-sm-8">
-        <h2>Complaints</h2>
-        @foreach(var not in Model){
+        <h2 style="color:#9d2923">Complaints</h2>
+        @foreach (var com in ViewBag.Complaints)
+        {
             <div class="border border-light p-3 mt-1">
-                <h3>@not.Title</h3>
-                <p>@not.Description</p>
+                <a href="/Complaint/Details/@com.Id" style="color:#22669f" class="text-decoration-none">
+                    <h3>@com.Title</h3>
+                </a>
+                <p>@com.Description</p>
             </div>
         }
     </div>
     <div class="col-sm-4">
         <div class="p-3 border border-light rounded">
-            <h2>Notices</h2>
+            <h2 style="color:#9d2923">Notices</h2>
             <ul class="list-group list-group-flush">
                 @foreach (var not in Model)
                 {
-                    <li class="list-group-item"><a href="/Notice/View?id=@not.Id" class="text-black text-decoration-none">@not.Title</a></li>
+                    <li class="list-group-item">
+                        <a href="/Notice/Details/@not.Id" class="text-black text-decoration-none">@not.Title</a>
+                    </li>
                 }
             </ul>
+        </div>
+        <div class="p-3 border border-light rounded">
+            <img src="~/img/advertisement.jpeg" alt="shoes" class="img-thumbnail">
         </div>
     </div>
 </div>
