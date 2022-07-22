@@ -20,24 +20,27 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea class="form-control" asp-for="Description" rows="12"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DepartmentId" class="control-label"></label>
-                <input asp-for="DepartmentId" class="form-control" />
-                <span asp-validation-for="DepartmentId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
+             @if (this.User.IsInRole("Admin"))
+             {
+                 <div class="form-group">
+                     <label asp-for="Status" class="control-label"></label>
+                     @* @(Model.Status == "underAction" ? "selected='selected'" :  "") *@
+                     <select class="form-control">
+                         <option value="processing" selected="@(Model.Status == "processing")" >Processing</option>
+                         <option selected="@(Model.Status == "underAction")" value="underAction" >Under Action</option>
+                         <option selected="@(Model.Status == "completed")" value="completed" >Completed</option>
+                     </select>
+                     <span asp-validation-for="Status" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <label asp-for="DepartmentId" class="control-label"></label>
+                     <input asp-for="DepartmentId" class="form-control"/>
+                     <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                 </div>
+             }
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

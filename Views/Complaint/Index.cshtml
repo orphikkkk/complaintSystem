@@ -42,7 +42,7 @@
                         <a class="text-decoration-none text-white" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     </button>
                     <button class="btn btn-danger">
-                        <a class="text-decoration-none text-white" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="text-decoration-none text-white delete"  href="/Complaint/Delete/@item.Id">Delete</a>
                     </button>
                 }
             </td>

@@ -135,41 +135,19 @@ namespace SajhaSabal.Controllers
             }
             return View(complaintModel);
         }
-
-        // GET: Complaint/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Complaints == null)
-            {
-                return NotFound();
-            }
-
-            var complaintModel = await _context.Complaints
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (complaintModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(complaintModel);
-        }
-
-        // POST: Complaint/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        
+        public IActionResult Delete(int id)
         {
             if (_context.Complaints == null)
             {
                 return Problem("Entity set 'SsdbContext.Complaints'  is null.");
             }
-            var complaintModel = await _context.Complaints.FindAsync(id);
+            ComplaintModel complaintModel = _context.Complaints.FirstOrDefault(X => X.Id == id);
             if (complaintModel != null)
             {
                 _context.Complaints.Remove(complaintModel);
+                _context.SaveChanges();
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

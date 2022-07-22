@@ -118,40 +118,20 @@ namespace SajhaSabal.Controllers
             return View(noticeModel);
         }
 
-        // GET: Notice/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null || _context.Notices == null)
+            if (_context.Complaints == null)
             {
-                return NotFound();
+                return Problem("Entity set 'SsdbContext.Complaints'  is null.");
             }
 
-            var noticeModel = await _context.Notices
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (noticeModel == null)
+            NoticeModel notice = _context.Notices.FirstOrDefault(X => X.Id == id);
+            if (notice != null)
             {
-                return NotFound();
+                _context.Notices.Remove(notice);
+                _context.SaveChanges();
             }
 
-            return View(noticeModel);
-        }
-
-        // POST: Notice/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Notices == null)
-            {
-                return Problem("Entity set 'SsdbContext.Notices'  is null.");
-            }
-            var noticeModel = await _context.Notices.FindAsync(id);
-            if (noticeModel != null)
-            {
-                _context.Notices.Remove(noticeModel);
-            }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

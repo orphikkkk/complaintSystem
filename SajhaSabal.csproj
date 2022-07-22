@@ -26,4 +26,12 @@
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Profile\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Profile\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Profile\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Profile\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Profile\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
