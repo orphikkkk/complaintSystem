@@ -32,9 +32,9 @@ namespace SajhaSabal.Controllers
                 ViewBag.id = user.Id;
             }
 
-            return _context.Complaints != null ? 
-                          View(await _context.Complaints.ToListAsync()) :
-                          Problem("Entity set 'SsdbContext.Complaints'  is null.");
+            return _context.Complaints != null
+                ? View(await _context.Complaints.ToListAsync())
+                : Problem("Entity set 'SsdbContext.Complaints'  is null.");
         }
 
         // GET: Complaint/Details/5
@@ -44,6 +44,7 @@ namespace SajhaSabal.Controllers
             {
                 return NotFound();
             }
+
             ComplaintViewModel complaint = (from c in _context.Complaints
                 join d in _context.Departments on c.DepartmentId equals d.Id
                 //where p.IsActive == true
@@ -55,7 +56,7 @@ namespace SajhaSabal.Controllers
                     DepartmentId = c.DepartmentId,
                     Description = c.Description,
                     DepartmentName = d.Title
-                }).First(c=>c.Id == id);
+                }).First(c => c.Id == id);
 
             return View(complaint);
         }
@@ -63,9 +64,14 @@ namespace SajhaSabal.Controllers
         // GET: Complaint/Create
         public IActionResult Create()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Redirect("/Account/Login");
+            }
+
             List<DepartmentModel> department = _context.Departments.ToList();
             ViewBag.Departments = department;
-           
+
             return View();
         }
 
@@ -74,15 +80,15 @@ namespace SajhaSabal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Status,DepartmentId,UserId")] ComplaintModel complaintModel)
+        public async Task<IActionResult> Create(
+            [Bind("Id,Title,Description,Status,DepartmentId,UserId")] ComplaintModel complaintModel)
         {
             IdentityUser user = await _userManager.GetUserAsync(HttpContext.User);
-                complaintModel.UserId = user.Id;
-                complaintModel.Status = "Processing";
-                _context.Add(complaintModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-
+            complaintModel.UserId = user.Id;
+            complaintModel.Status = "Processing";
+            _context.Add(complaintModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Complaint/Edit/5
@@ -98,6 +104,7 @@ namespace SajhaSabal.Controllers
             {
                 return NotFound();
             }
+
             return View(complaintModel);
         }
 
@@ -106,54 +113,57 @@ namespace SajhaSabal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Status,DepartmentId,UserId")] ComplaintModel complaintModel)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("Id,Title,Description,Status,DepartmentId,UserId")] ComplaintModel complaintModel)
         {
             if (id != complaintModel.Id)
             {
                 return NotFound();
             }
+            IdentityUser user = await _userManager.GetUserAsync(HttpContext.User);
+            
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(complaintModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ComplaintModelExists(complaintModel.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(complaintModel);
+                complaintModel.UserId = user.Id;
+                await _context.SaveChangesAsync();
             }
-            return View(complaintModel);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ComplaintModelExists(complaintModel.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction(nameof(Index));
         }
-        
+
         public IActionResult Delete(int id)
         {
             if (_context.Complaints == null)
             {
                 return Problem("Entity set 'SsdbContext.Complaints'  is null.");
             }
+
             ComplaintModel complaintModel = _context.Complaints.FirstOrDefault(X => X.Id == id);
             if (complaintModel != null)
             {
                 _context.Complaints.Remove(complaintModel);
                 _context.SaveChanges();
             }
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool ComplaintModelExists(int id)
         {
-          return (_context.Complaints?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Complaints?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

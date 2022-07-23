@@ -19,6 +19,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
         <th></th>
     </tr>
     </thead>
@@ -31,6 +34,9 @@
             </td>
             <td class="text-truncate">
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td class="text-truncate">
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
                 <button class="btn btn-info">

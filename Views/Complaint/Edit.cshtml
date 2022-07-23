@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 
-<h4>ComplaintModel</h4>
+<h4>Complaint</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -28,7 +28,7 @@
                  <div class="form-group">
                      <label asp-for="Status" class="control-label"></label>
                      @* @(Model.Status == "underAction" ? "selected='selected'" :  "") *@
-                     <select class="form-control">
+                     <select class="form-control" asp-for="Status">
                          <option value="processing" selected="@(Model.Status == "processing")" >Processing</option>
                          <option selected="@(Model.Status == "underAction")" value="underAction" >Under Action</option>
                          <option selected="@(Model.Status == "completed")" value="completed" >Completed</option>

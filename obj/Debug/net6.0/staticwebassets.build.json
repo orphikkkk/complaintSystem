@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OHrLyT4bwSEoGjPt+6cRTTyh+yTYv43N3lpJ5nNyiSs=",
+  "Hash": "ink9enK3LDnFwPWWjXCi0YC0Y5xY8fdxrP8XKtmHQPY=",
   "Source": "SajhaSabal",
   "BasePath": "_content/SajhaSabal",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
+      "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/img/.DS_Store",
+      "SourceId": "SajhaSabal",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/",
+      "BasePath": "_content/SajhaSabal",
+      "RelativePath": "img/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/.DS_Store"
+    },
+    {
       "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/img/advertisement.jpeg",
       "SourceId": "SajhaSabal",
       "SourceType": "Discovered",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/advertisement.jpeg"
+    },
+    {
+      "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/img/nepaliMan.png",
+      "SourceId": "SajhaSabal",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/",
+      "BasePath": "_content/SajhaSabal",
+      "RelativePath": "img/nepaliMan.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/nepaliMan.png"
     },
     {
       "Identity": "/Users/sajagdhungana/NewSummit/sixthSemester/netCentricComputing/project/SajhaSabal/SajhaSabal/wwwroot/js/site.js",

@@ -1,0 +1,53 @@
+@model SajhaSabal.Models.UserDetailModel
+
+@{
+    ViewBag.Title = "Create| User Profile";
+    Layout = "_Layout";
+}
+
+<h2>Create Your User Profile</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input class="form-control" asp-for="LastName" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input class="form-control" asp-for="Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="District" class="control-label"></label>
+                <input class="form-control" asp-for="District" />
+                <span asp-validation-for="District" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label">States</label>
+                <select asp-for="State" class="form-control">
+                    <option value="1">State 1</option>
+                    <option value="2">State 2</option>
+                    <option value="3">State 3</option>
+                    <option value="4">State 4</option>
+                    <option value="5">State 5</option>
+                    <option value="6">State 6</option>
+                    <option value="7">State 7</option>
+                </select>
+                @* <input asp-for="DepartmentId" class="form-control" /> *@
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group m-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

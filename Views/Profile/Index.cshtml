@@ -1,0 +1,58 @@
+@model SajhaSabal.Models.UserDetailModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+<div class="row justify-content-between">
+    <div class="col-sm-2">
+        <button class="btn btn-warning"><a class="text-decoration-none text-white" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></button>
+    </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col-sm-4">
+            <button class="btn btn-success"><a class="text-decoration-none text-white" href="/Account/Roles">Roles</a></button>
+            <button class="btn btn-info"><a class="text-decoration-none text-white" href="/Account/AssignRole">Assign Roles</a></button>
+            <button class="btn btn-danger"><a class="text-decoration-none text-white" href="/Department">Department</a></button>
+        </div>
+    }
+</div>
+<div>
+    <h4>User Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Name:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.District)
+                </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.District)
+        </dd>
+        <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.State)
+        </dd>
+    </dl>
+</div>
+<div>
+ @if (this.User.IsInRole("Admin"))
+ {
+     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+ }
+    <a asp-action="Index">Back to List</a>
+</div>
